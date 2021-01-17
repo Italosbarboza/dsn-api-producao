@@ -21,6 +21,8 @@
       "type": "mongodb",
       "host": "localhost",
       "port": 26017,
+      "username": "dsn",
+      "password": "$vidas12345",
       "database": "mongo",
       "useUnifiedTopology": true,
       "entities": [
