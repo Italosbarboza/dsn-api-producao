@@ -7,26 +7,13 @@
         "password": "$vidas12345",
         "database": "sabm",
         "entities": [
-                "./src/modules/**/infra/typeorm/entities/*.js"
+                "./src/modules/**/infra/typeorm/entities/*.ts"
         ],
         "migrations": [
-                "./src/shared/infra/typeorm/migrations/*.js"
+                "./src/shared/infra/typeorm/migrations/*.ts"
         ],
         "cli": {
                 "migrationsDir": "./src/shared/infra/typeorm/migrations"
         }
-    },
-  {
-      "name": "mongo",
-      "type": "mongodb",
-      "host": "localhost",
-      "port": 26017,
-      "username": "dsn",
-      "password": "$vidas12345",
-      "database": "mongo",
-      "useUnifiedTopology": true,
-      "entities": [
-              "./src/systems/**/infra/typeorm/schemas/*.js"
-      ]
-  }
+    }
 ]
