@@ -1,16 +1,16 @@
 [
   {
         "type": "mysql",
-        "host": "localhost",
-        "port": 33306,
-        "username": "root",
+        "host": "dsn-banco.c2fmcgckey1n.us-east-1.rds.amazonaws.com",
+        "port": 3306,
+        "username": "admin",
         "password": "$vidas12345",
         "database": "sabm",
         "entities": [
-                "./src/modules/**/infra/typeorm/entities/*.js"
+                "./src/modules/**/infra/typeorm/entities/*.ts"
         ],
         "migrations": [
-                "./src/shared/infra/typeorm/migrations/*.js"
+                "./src/shared/infra/typeorm/migrations/*.ts"
         ],
         "cli": {
                 "migrationsDir": "./src/shared/infra/typeorm/migrations"
@@ -24,7 +24,7 @@
       "database": "mongo",
       "useUnifiedTopology": true,
       "entities": [
-              "./src/systems/**/infra/typeorm/schemas/*.js"
+              "./src/systems/**/infra/typeorm/schemas/*.ts"
       ]
   }
 ]
