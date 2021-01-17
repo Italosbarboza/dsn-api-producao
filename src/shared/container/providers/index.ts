@@ -11,8 +11,6 @@ import HandlebarsMailTemplateProvider from "./MailTemplateProvider/implementatio
 import IMailProvider from "./MailProvider/models/IMailProvider";
 import EtherealMailProvider from "./MailProvider/implementations/EtherealMailProvider";
 
-import ICacheProvider from "./CacheProvider/models/ICacheProvider";
-import RedisCacheProvider from "./CacheProvider/implementations/RedisCacheProvider";
 import S3StorageProvider from './StorageProvider/implementations/S3StorageProvider';
 
 container.registerSingleton<IStorageProvider>(
@@ -35,14 +33,5 @@ container.registerInstance<IMailProvider>(
   container.resolve(EtherealMailProvider),
 );
 
-container.registerInstance<ICacheProvider>(
-  "CacheProvider",
-  container.resolve(RedisCacheProvider),
-);
-
-container.registerInstance<ICacheProvider>(
-  "CacheProvider",
-  container.resolve(RedisCacheProvider),
-);
 
 
