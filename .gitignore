@@ -6,5 +6,4 @@ temp/
 coverage
 dist
 
-tmp/*
 !tmp/.gitkeep
