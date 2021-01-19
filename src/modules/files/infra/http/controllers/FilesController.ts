@@ -11,6 +11,8 @@ import CompareFileService from "@modules/files/services/CompareFileService";
 
 export default class FilesController {
   public async update(request: Request, response: Response): Promise<Response> {
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    
     const updateUserAvatar = container.resolve(UpdateUserAvatarService);
 
     const cod_user: number = Number(request.user.id);
