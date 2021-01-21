@@ -19,11 +19,8 @@ class ListUsersService {
   public async execute({ user_id }: IRequest): Promise<User[] | null> {
     const user = await this.usersRepository.findById(user_id);
 
-    const users = null;
-
-    if(user && user.acesso === '1') {
-        users = this.usersRepository.findAllUsers();
-    }
+    const users = this.usersRepository.findAllUsers();
+    console.log(users);    
 
     return users;
   }

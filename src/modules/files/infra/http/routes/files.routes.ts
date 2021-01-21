@@ -18,6 +18,16 @@ filesRouter.post(
   filesController.compare,
 );
 
+filesRouter.put(
+  "/cache",
+  filesController.cache,
+);
+
+filesRouter.get(
+  "/cache/:id",
+  filesController.getCache,
+);
+
 filesRouter.use(authMiddleware);
 
 filesRouter.get("/", filesController.index);
@@ -35,6 +45,8 @@ filesRouter.put(
     upload.single("avatar"),
     filesController.updateFile,
 );
+
+
 
 filesRouter.delete("/:id_arquivo", filesController.delete);
 

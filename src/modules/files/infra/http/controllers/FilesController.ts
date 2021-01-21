@@ -8,6 +8,9 @@ import UpdateFileAvatarService from "@modules/files/services/UpdateFileAvatarSer
 import fs from 'fs';
 import CompareFileService from "@modules/files/services/CompareFileService";
 
+import AWS from "aws-sdk";
+import model from "./model";
+
 
 export default class FilesController {
   public async update(request: Request, response: Response): Promise<Response> {
@@ -26,13 +29,27 @@ export default class FilesController {
     return response.json(file);
   }
 
+
+  public async cache(request: Request, response: Response): Promise<Response> {
+    
+    model.create(request.body);
+     
+    return response.json({message: 'ok'});
+  }
+
+  public async getCache(request: Request, response: Response): Promise<Response> {
+    const {id} = request.params;
+    const validations = await model.scan({ file: { contains: id}}).exec();
+    return response.json(validations);
+  }
+
   public async compare(request: Request, response: Response): Promise<Response> {
     const compareFile = container.resolve(CompareFileService);
-    console.log('Chegou aqui');
+
     //let dataBuffer = fs.readFileSync(request.file);
 
     const {id_arquivo} = request.params;
-
+    console.log(id_arquivo)
     const file = await compareFile.execute({
       id_arquivo,
       avatar_filename: request.file.filename,
